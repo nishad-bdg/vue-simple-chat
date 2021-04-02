@@ -1,17 +1,27 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p v-if="isConnected">Socket is connected</p>
+    <p v-else>Socket is disconnected</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
+  },
+  data(){
+    return{
+      isConnected: false
+    }
+  },
+  sockets:{
+    connect(){
+      this.isConnected = true
+    }
   }
 }
 </script>
